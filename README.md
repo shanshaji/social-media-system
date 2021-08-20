@@ -3,7 +3,7 @@
 Install the dependencies and start the server.
 
 ```sh
-cd social-media-stadium-goods
+cd social-media-system
 bundle install
 bundle exec rackup
 ```
@@ -17,8 +17,7 @@ rspec specs/
 
 
 ```sh
-curl localhost:9292 --header 'Authorization: Basic OnBhc3N3b3Jk'
+curl localhost:3000
 ```
 ##### or
-* Create a get request using postman http://localhost:9292/
-* Use basic auth from authorization and add password as `password`
+* Create a get request using postman http://localhost:3000/

@@ -2,7 +2,7 @@
 
 require 'json'
 require 'net/http'
-Dir[File.dirname(__FILE__) + '/social_media_system/**/*.rb'].each { |file| require file }
+Dir["#{File.dirname(__FILE__)}/social_media_system/**/*.rb"].sort.each { |file| require file }
 
 module SocialMediaSystem
   # Opens up api end point.
@@ -18,7 +18,7 @@ module SocialMediaSystem
       end
     end
 
-    def retrieve_social_media_posts request
+    def retrieve_social_media_posts(request)
       if request.get?
         json_response(SocialMediaSystem::SocialMediaRetriever.run)
       else
@@ -29,7 +29,7 @@ module SocialMediaSystem
     end
 
     def not_found
-      Rack::Response.new('Not found', 404).finish
+      Rack::Response.new(['NOT FOUND'], 404)
     end
 
     def json_response(resp)

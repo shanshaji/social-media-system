@@ -1,15 +1,14 @@
-
 # frozen_string_literal: true
 
 require_relative 'social_media'
 module SocialMediaSystem
-	class Twitter < SocialMedia
-		def initialize
-			url = "https://takehome.io/twitter"
-			super(url)
-		end
-		# def retrieve
-  #   		retrieve_until_valid_response(@url)
-  # 		end
-	end
+  class Twitter < SocialMedia
+    def initialize
+      super(Constants::TWITTER_URL)
+    end
+
+    def retrieve(retriever)
+      retriever.retrieve(@url)
+    end
+  end
 end
